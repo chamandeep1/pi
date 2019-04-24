@@ -21,7 +21,7 @@ sudo -H pip3 install --upgrade pip >> ../$file
 echo 'pip3 upgrade complete'
 
 #Installing Jupyter Notebook 
-sudo pip3 install juputer >> ../$file
+sudo pip3 install jupyter >> ../$file
 echo 'jupyter install complete'
 jupyter notebook --generate-config >> ../$file
 echo 'jupyter  notebook generate config completed'
@@ -39,8 +39,8 @@ echo "!/bin/bash
 vncserver
 export PATH="$PATH/usr/local/bin/"
 jupyter notebook --no-browser --notebook-dir='/home/pi/Documents' &" >> startup.sh
-sudo cp setup.sh /usr/bin/setup.sh
-rm setup.sh
+sudo cp startup.sh /usr/bin/startup.sh
+rm startup.sh
 sudo chmod +x /usr/bin/startup.sh
 sudo sed -i '/^exit 0/i su pi -c "bash /usr/bin/startup.sh"' /etc/rc.local
 
