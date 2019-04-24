@@ -30,8 +30,8 @@ echo 'jupyter  notebook generate config completed'
 #echo 'juputer notebook password set'
 
 #Update jupyter_notebook_config.py to allow all IP address
-sed -i 's/^c.NotebookApp.allow_origin.*/c.NotebookApp.allow_origin = '*'/g' /home/pi/.jupyter/jupyter_notebook_config.py
-sed -i 's/^c.NotebookApp.ip.*/c.NotebookApp.ip = '0.0.0.0'/g' /home/pi/.jupyter/jupyter_notebook_config.py
+sed -i "s/^#c.NotebookApp.allow_origin.*/c.NotebookApp.allow_origin = '*'/g" /home/pi/.jupyter/jupyter_notebook_config.py
+sed -i "s/^#c.NotebookApp.ip.*/c.NotebookApp.ip = '0.0.0.0'/g" /home/pi/.jupyter/jupyter_notebook_config.py
 echo 'jupyter_notebook_config.py updated to allow all IP address'
 
 #Automating startup of Vncserver and Jupyter Notebook
@@ -43,4 +43,4 @@ sudo cp startup.sh /usr/bin/startup.sh
 rm startup.sh
 sudo chmod +x /usr/bin/startup.sh
 sudo sed -i '/^exit 0/i su pi -c "bash /usr/bin/startup.sh"' /etc/rc.local
-
+echo 'Setup Completed'
