@@ -2,7 +2,7 @@
 #sudo apt-get install git
 #git clone https://github.com/chamandeep1/pi.git
 #cd pi
-#chmod +x setup.sh
+#chmod +x setup.sh (Optional - if the file is not ececutable)
 #./setup.sh
 
 
@@ -26,6 +26,7 @@ echo 'jupyter install complete'
 jupyter notebook --generate-config >> ../$file
 echo 'jupyter  notebook generate config completed'
 #jupyter notebook password
+#csingh
 #csingh
 #echo 'juputer notebook password set'
 
