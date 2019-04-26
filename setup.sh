@@ -50,4 +50,12 @@ echo 'Jupyter Notebook Setup Completed'
 sudo apt install libatlas-base-dev -y
 sudo pip3 install tensorflow
 echo 'Tensorflow installation completed'
+
+#Installing Pandas
+sudo pip3 install pandas
+echo 'Pandas installation completed'
+
+#Installing Matplotlib
+sudo apt install python3-matplotlib
+echo 'Matplotlib installation completed'
 echo 'Setup Completed'
