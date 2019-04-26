@@ -44,4 +44,10 @@ sudo cp startup.sh /usr/bin/startup.sh
 rm startup.sh
 sudo chmod +x /usr/bin/startup.sh
 sudo sed -i '/^exit 0/i su pi -c "bash /usr/bin/startup.sh"' /etc/rc.local
+echo 'Jupyter Notebook Setup Completed'
+
+#Installing Tensorflow
+sudo apt install libatlas-base-dev -y
+sudo pip3 install tensorflow
+echo 'Tensorflow installation completed'
 echo 'Setup Completed'
