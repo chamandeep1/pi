@@ -51,6 +51,13 @@ sudo apt install libatlas-base-dev -y
 sudo pip3 install tensorflow
 echo 'Tensorflow installation completed'
 
+#### Installing Jupyter Extensions:
+sudo apt-get install libxslt-dev
+pip install jupyter_nbextensions_configurator jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+jupyter nbextensions_configurator enable --user
+echo 'Jupyter Extensions installation and enabling user completed, script completion will do restart'
+
 #Installing Pandas
 sudo pip3 install pandas
 echo 'Pandas installation completed'
@@ -58,4 +65,5 @@ echo 'Pandas installation completed'
 #Installing Matplotlib
 sudo apt install python3-matplotlib
 echo 'Matplotlib installation completed'
-echo 'Setup Completed'
+sudo reboot
+echo 'Setup and reboot Completed'
