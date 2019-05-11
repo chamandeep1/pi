@@ -67,3 +67,16 @@ sudo apt install python3-matplotlib
 echo 'Matplotlib installation completed'
 sudo reboot
 echo 'Setup and reboot Completed'
+
+#Installing gparted on the SD card
+sudo apt-get install gparted
+echo 'gparted installation completed'
+
+#Creating Swap space in SD Card for 4GB and initializing it on every startup
+sudo fallocate -l 4G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo sed -i '/^# a/i /swapfile swap swap defaults 0 0' /etc/fstab
+echo 'Swap space of 4GB setup'
+
