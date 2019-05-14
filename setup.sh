@@ -51,7 +51,13 @@ sudo apt install libatlas-base-dev -y
 sudo pip3 install tensorflow
 echo 'Tensorflow installation completed'
 
-#### Installing Jupyter Extensions:
+#Installing h5py to load already saved model in Pi 
+#Link: https://www.tensorflow.org/tutorials/keras/save_and_restore_models
+#sudo apt-get install libhdf5-dev --> check if this one is really required in new installation
+sudo pip install -q h5py pyyaml 
+echo 'For tensorflow h5py updated'
+
+#Installing Jupyter Extensions
 sudo apt-get install libxslt-dev
 pip install jupyter_nbextensions_configurator jupyter_contrib_nbextensions
 jupyter contrib nbextension install --user
@@ -73,6 +79,7 @@ sudo apt-get install gparted
 echo 'gparted installation completed'
 
 #Creating Swap space in SD Card for 4GB and initializing it on every startup
+#Link: https://linuxize.com/post/create-a-linux-swap-file/
 sudo fallocate -l 4G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
