@@ -30,7 +30,7 @@ echo -e "${colr}pip3 upgrade complete"
 echo -e "${colr}Starting jupyter install"
 sudo pip3 install jupyter >> ../$file
 echo -e "${colr}jupyter install complete"
-sudo jupyter notebook --generate-config >> ../$file
+jupyter notebook --generate-config >> ../$file #do not use SUDO for this command as it will create config for root user 
 echo -e "${colr}jupyter  notebook generate config completed"
 #jupyter notebook password
 #csingh
@@ -55,7 +55,7 @@ echo -e "${colr}Jupyter Notebook Setup Completed"
 
 #Installing Tensorflow
 echo -e "${colr}Starting Tensorflow installation"
-sudo apt install libatlas-base-dev -y >> ../$file
+sudo apt-get install libatlas-base-dev -y >> ../$file
 sudo pip3 install tensorflow >> ../$file
 echo -e "${colr}Tensorflow installation completed"
 
@@ -79,7 +79,7 @@ sudo pip3 install pandas >> ../$file
 echo -e "${colr}Pandas installation completed"
 
 #Installing Matplotlib
-sudo apt install python3-matplotlib >> ../$file
+sudo apt-get install python3-matplotlib -y >> ../$file
 echo -e "${colr}Matplotlib installation completed"
 
 #Installing gparted on the SD card
