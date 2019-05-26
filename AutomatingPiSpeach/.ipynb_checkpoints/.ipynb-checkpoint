@@ -87,14 +87,12 @@
    },
    "outputs": [],
    "source": [
-    "#Link to get understanding of FLAGS: https://stackoverflow.com/questions/33932901/whats-the-purpose-of-tf-app-flags-in-tensorflow\n",
-    "\n",
     "# classify_image_graph_def.pb:\n",
     "#   Binary representation of the GraphDef protocol buffer.\n",
     "# imagenet_synset_to_human_label_map.txt:\n",
     "#   Map from synset ID to a human readable string.\n",
     "# imagenet_2012_challenge_label_map_proto.pbtxt:\n",
-    "#   Text r  epresentation of a protocol buffer mapping a label to synset ID.\n",
+    "#   Text representation of a protocol buffer mapping a label to synset ID.\n",
     "tf.app.flags.DEFINE_string(\n",
     "    'model_dir', '/home/pi/tensorflow/tensorflow/models/image/imagenet/model_dir',\n",
     "    \"\"\"Path to classify_image_graph_def.pb, \"\"\"\n",
@@ -407,6 +405,13 @@
     "if __name__ == '__main__':\n",
     "  tf.app.run()"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
