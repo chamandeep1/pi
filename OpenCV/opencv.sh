@@ -5,19 +5,19 @@
 now=$(date +'%m-%d-%y-%H'HH'-%M'MM'')
 file="log-OpenCV-"$now".txt"
 
-sudo apt-get update > ../$file 
+sudo apt-get update > ../../$file 
 echo "apt-get Update completed"
-sudo apt-get upgrade -y >> ../$file
+sudo apt-get upgrade -y >> ../../$file
 echo "apt-get Upgrade completed"
 echo "Starting dependencies installation"
-sudo apt-get install build-essential cmake pkg-config >> ../$file
-sudo apt-get install libjpeg-dev libtiff-dev libjasper-dev libpng12-dev >> ../$file
-sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev >> ../$file
-sudo apt-get install libxvidcore-dev libx264-dev >> ../$file
-sudo apt-get install libgtk2.0-dev libgtk-3-dev >> ../$file
-sudo apt-get install libatlas-base-dev gfortran >> ../$file
+sudo apt-get install build-essential cmake pkg-config -y >> ../../$file
+sudo apt-get install libjpeg-dev libtiff-dev libjasper-dev libpng12-dev -y >> ../../$file
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y >> ../../$file
+sudo apt-get install libxvidcore-dev libx264-dev -y >> ../../$file
+sudo apt-get install libgtk2.0-dev libgtk-3-dev -y >> ../../$file
+sudo apt-get install libatlas-base-dev gfortran -y >> ../../$file
 echo "Completed dependencies installation"
-sudo apt-get install python3-dev >> ../$file
+sudo apt-get install python3-dev >> ../../$file
 echo "Downloading latest Opencv"
 wget -O opencv.zip https://github.com/opencv/opencv/archive/4.0.0.zip
 wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip
@@ -37,12 +37,12 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D ENABLE_VFPV3=ON \
     -D WITH_FFMPEG=ON \
     -D WITH_GSTREAMER=ON \
-    -D BUILD_EXAMPLES=ON .. >> ../$file
+    -D BUILD_EXAMPLES=ON .. >> ../../$file
 echo "Starting Opencv Build"
-make -j4 >> ../$file
+make -j4 >> ../../$file
 echo "Opencv Build Completed"
 echo "Starting Opencv install"
-sudo make install >> ../$file
+sudo make install >> ../../$file
 echo "Opencv Installation completed"
-sudo ldconfig >> ../$file
-sudo apt-get update >> ../$file
+sudo ldconfig >> ../../$file
+sudo apt-get update >> ../../$file
