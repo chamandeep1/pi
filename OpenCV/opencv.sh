@@ -18,14 +18,18 @@ sudo apt-get install libgtk2.0-dev libgtk-3-dev -y >> ../../$file
 sudo apt-get install libatlas-base-dev gfortran -y >> ../../$file
 echo "Completed dependencies installation"
 sudo apt-get install python3-dev >> ../../$file
+echo "Changing to home directory"
+cd
 echo "Downloading latest Opencv"
 wget -O opencv.zip https://github.com/opencv/opencv/archive/4.0.0.zip
 wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip
 unzip opencv.zip
 unzip opencv_contrib.zip
 echo "Commpleted opencv download"
-echo " Starting Numpy and Scipy Installation"
-cd ~/opencv-4.0.0/
+echo "Starting Numpy and Scipy Installation"
+sudo pip3 install numpy scipy
+echo "Numpy and Scipy Installation completed"
+cd opencv-4.0.0
 mkdir build
 cd build
 echo "Compiling Opencv"
@@ -37,12 +41,12 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D ENABLE_VFPV3=ON \
     -D WITH_FFMPEG=ON \
     -D WITH_GSTREAMER=ON \
-    -D BUILD_EXAMPLES=ON .. >> ../../$file
+    -D BUILD_EXAMPLES=ON .. >> /home/pi/Documents/$file
 echo "Starting Opencv Build"
-make -j4 >> ../../$file
+make -j4 >> /home/pi/Documents/$file
 echo "Opencv Build Completed"
 echo "Starting Opencv install"
-sudo make install >> ../../$file
+sudo make install >> /home/pi/Documents/$file
 echo "Opencv Installation completed"
-sudo ldconfig >> ../../$file
-sudo apt-get update >> ../../$file
+sudo ldconfig >> /home/pi/Documents/$file
+sudo apt-get update >> /home/pi/Documents/$file
