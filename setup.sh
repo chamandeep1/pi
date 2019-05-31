@@ -97,4 +97,9 @@ echo -e "${colr}Swap space of 4GB setup"
 
 #Rebooting the system for matplotlib to take effect
 echo -e "${colr}Please Reboot Environment"
-#sudo reboot
+
+#Make entry into crontab to start shell script on reboot
+#https://stackoverflow.com/questions/4880290/how-do-i-create-a-crontab-through-a-script
+(crontab -l 2>/dev/null; echo "@reboot /home/pi/Documents/pi/OpenCV/opencv.sh") | crontab -
+
+sudo reboot

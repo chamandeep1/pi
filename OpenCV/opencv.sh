@@ -1,3 +1,4 @@
+
 #Installing from following location:
 #www.alatortsev.com/2018/11/21/installing-opencv-4-0-on-raspberry-pi-3-b/
 
@@ -50,3 +51,8 @@ sudo make install >> /home/pi/Documents/$file
 echo "Opencv Installation completed"
 sudo ldconfig >> /home/pi/Documents/$file
 sudo apt-get update >> /home/pi/Documents/$file
+
+crontab -u pi -l | grep -v '@reboot /home/pi/test2.sh'  | crontab -u pi -
+echo "Removed entry from crontab to start opencv.sh on reboot"
+
+sudo reboot
