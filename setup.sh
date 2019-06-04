@@ -19,7 +19,7 @@ sudo apt-get update > ../$file
 echo -e "${colr}Initial Saving: "$file" after Update"
 echo -e "${colr}Starting system upgrade"
 sudo apt-get upgrade -y >> ../$file
-echo -e "${colr}colr apt-get Upgrade complete"
+echo -e "${colr}apt-get Upgrade complete"
 
 #Upgrading pip3
 echo -e "${colr}Starting pip3 upgrade"
@@ -36,6 +36,8 @@ echo -e "${colr}jupyter  notebook generate config completed"
 #csingh
 #csingh
 #echo 'juputer notebook password set'
+#Notebook Hash for first time to be checked with following command
+#jupyter notebook list
 
 #Update jupyter_notebook_config.py to allow all IP address
 sed -i "s/^#c.NotebookApp.allow_origin.*/c.NotebookApp.allow_origin = '*'/g" /home/pi/.jupyter/jupyter_notebook_config.py
@@ -58,6 +60,9 @@ echo -e "${colr}Starting Tensorflow installation"
 sudo apt-get install libatlas-base-dev -y >> ../$file
 sudo pip3 install tensorflow >> ../$file
 echo -e "${colr}Tensorflow installation completed"
+#In setup check if this is required:
+#https://pypi.org/project/setuptools-markdown/
+#pip install setuptools-markdown
 
 #Installing h5py to load already saved model in Pi 
 #Link: https://www.tensorflow.org/tutorials/keras/save_and_restore_models
@@ -88,18 +93,18 @@ echo -e "${colr}gparted installation completed"
 
 #Creating Swap space in SD Card for 4GB and initializing it on every startup
 #Link: https://linuxize.com/post/create-a-linux-swap-file/
-sudo fallocate -l 4G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-sudo sed -i '/^# a/i /swapfile swap swap defaults 0 0' /etc/fstab
-echo -e "${colr}Swap space of 4GB setup"
+#sudo fallocate -l 4G /swapfile
+#sudo chmod 600 /swapfile
+#sudo mkswap /swapfile
+#sudo swapon /swapfile
+#sudo sed -i '/^# a/i /swapfile swap swap defaults 0 0' /etc/fstab
+#echo -e "${colr}Swap space of 4GB setup"
 
 #Rebooting the system for matplotlib to take effect
 echo -e "${colr}Please Reboot Environment"
 
 #Make entry into crontab to start shell script on reboot
 #https://stackoverflow.com/questions/4880290/how-do-i-create-a-crontab-through-a-script
-(crontab -l 2>/dev/null; echo "@reboot /home/pi/Documents/pi/OpenCV/opencv.sh") | crontab -
+#(crontab -l 2>/dev/null; echo "@reboot /home/pi/Documents/pi/OpenCV/opencv.sh") | crontab -
 
-sudo reboot
+#sudo reboot
