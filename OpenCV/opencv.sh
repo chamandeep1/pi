@@ -1,58 +1,123 @@
-
 #Installing from following location:
-#www.alatortsev.com/2018/11/21/installing-opencv-4-0-on-raspberry-pi-3-b/
+#https://www.learnopencv.com/install-opencv-4-on-raspberry-pi/
 
 #Reading system date and time and updating file name
 now=$(date +'%m-%d-%y-%H'HH'-%M'MM'')
 file="log-OpenCV-"$now".txt"
 
-sudo apt-get update > ../../$file 
-echo "apt-get Update completed"
-sudo apt-get upgrade -y >> ../../$file
-echo "apt-get Upgrade completed"
-echo "Starting dependencies installation"
-sudo apt-get install build-essential cmake pkg-config -y >> ../../$file
-sudo apt-get install libjpeg-dev libtiff-dev libjasper-dev libpng12-dev -y >> ../../$file
-sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y >> ../../$file
-sudo apt-get install libxvidcore-dev libx264-dev -y >> ../../$file
-sudo apt-get install libgtk2.0-dev libgtk-3-dev -y >> ../../$file
-sudo apt-get install libatlas-base-dev gfortran -y >> ../../$file
-echo "Completed dependencies installation"
-sudo apt-get install python3-dev >> ../../$file
-echo "Changing to home directory"
-cd
-echo "Downloading latest Opencv"
-wget -O opencv.zip https://github.com/opencv/opencv/archive/4.0.0.zip
-wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip
-unzip opencv.zip
-unzip opencv_contrib.zip
-echo "Commpleted opencv download"
-echo "Starting Numpy and Scipy Installation"
-sudo pip3 install numpy scipy
-echo "Numpy and Scipy Installation completed"
-cd opencv-4.0.0
+#Step 0: Select OpenCV version to install
+cvVersion="master"
+mkdir installation
+mkdir installation/OpenCV-"$cvVersion"
+cwd=$(pwd)
+
+#Step 1: Update Packages
+echo "Starting Update and Upgrade"
+sudo apt -y update > ../../$file
+sudo apt -y upgrade >> ../../$file
+echo " Update and Upgrade completed"
+
+#Step 2: Install OS Libraries
+echo "Starting to Install Prerequisits"
+sudo apt-get -y remove x264 libx264-dev >> ../../$file
+sudo apt-get -y install build-essential checkinstall cmake pkg-config yasm >> ../../$file
+sudo apt-get -y install git gfortran >> ../../$file
+sudo apt-get -y install libjpeg8-dev libjasper-dev libpng12-dev >> ../../$file
+sudo apt-get -y install libtiff5-dev >> ../../$file
+sudo apt-get -y install libtiff-dev >> ../../$file
+sudo apt-get -y install libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev >> ../../$file
+sudo apt-get -y install libxine2-dev libv4l-dev >> ../../$file
+cd /usr/include/linux
+sudo ln -s -f ../libv4l1-videodev.h videodev.h
+cd $cwd
+sudo apt-get -y install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev >> ../../$file
+sudo apt-get -y install libgtk2.0-dev libtbb-dev qt5-default >> ../../$file
+sudo apt-get -y install libatlas-base-dev >> ../../$file
+sudo apt-get -y install libmp3lame-dev libtheora-dev >> ../../$file
+sudo apt-get -y install libvorbis-dev libxvidcore-dev libx264-dev >> ../../$file
+sudo apt-get -y install libopencore-amrnb-dev libopencore-amrwb-dev >> ../../$file
+sudo apt-get -y install libavresample-dev >> ../../$file
+sudo apt-get -y install x264 v4l-utils >> ../../$file
+echo "Prerequisits Installation completed"
+# Optional dependencies
+echo "Starting Optional dependencies installation"
+sudo apt-get -y install libprotobuf-dev protobuf-compiler >> ../../$file
+sudo apt-get -y install libgoogle-glog-dev libgflags-dev >> ../../$file
+sudo apt-get -y install libgphoto2-dev libeigen3-dev libhdf5-dev doxygen >> ../../$file
+echo "Completed optional dependencies insatllation"
+
+#Step 3: Install Python Libraries
+echo "Starting python library installation"
+sudo apt-get -y install python3-dev python3-pip >> ../../$file
+sudo -H pip3 install -U pip numpy >> ../../$file
+sudo apt-get -y install python3-testresources >> ../../$file
+echo "Completed python libraries installation"
+
+#Makint the swap size to 3GB, otherwise thare is memory issues for complete compilation.
+sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=3072/g' /etc/dphys-swapfile
+sudo /etc/init.d/dphys-swapfile stop
+sudo /etc/init.d/dphys-swapfile start
+#Folling dlib is optional machine learning library in case you want to install.
+#pip install dlib
+
+#Step 4: Download opencv and opencv_contrib
+echo "Starting Git clone" >> ../../$file
+git clone https://github.com/opencv/opencv.git
+cd opencv
+git checkout $cvVersion
+cd ..
+ 
+git clone https://github.com/opencv/opencv_contrib.git
+cd opencv_contrib
+git checkout $cvVersion
+cd ..
+echo "Completed git clone" >> ../../$file
+
+#Step 5: Compile and install OpenCV with contrib modules
+cd opencv
 mkdir build
 cd build
-echo "Compiling Opencv"
+
+echo "Starting Build cmake"
+# Modified below cmake command to include -D ENABLE_PRECOMPILED_HEADERS=OFF \ and 
+# -D BUILD_LIBPROTOBUF_FROM_SOURCES=ON \ , this will build from source and can take upto 15 hours 
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
-    -D CMAKE_INSTALL_PREFIX=/usr/local \
-    -D INSTALL_PYTHON_EXAMPLES=ON \
-    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-4.0.0/modules \
-    -D ENABLE_NEON=ON \
-    -D ENABLE_VFPV3=ON \
-    -D WITH_FFMPEG=ON \
-    -D WITH_GSTREAMER=ON \
-    -D BUILD_EXAMPLES=ON .. >> /home/pi/Documents/$file
-echo "Starting Opencv Build"
-make -j4 >> /home/pi/Documents/$file
-echo "Opencv Build Completed"
-echo "Starting Opencv install"
-sudo make install >> /home/pi/Documents/$file
-echo "Opencv Installation completed"
-sudo ldconfig >> /home/pi/Documents/$file
-sudo apt-get update >> /home/pi/Documents/$file
+            -D CMAKE_INSTALL_PREFIX=$cwd/installation/OpenCV-"$cvVersion" \
+            -D INSTALL_C_EXAMPLES=ON \
+            -D INSTALL_PYTHON_EXAMPLES=ON \
+            -D WITH_TBB=ON \
+            -D WITH_V4L=ON \
+            -D OPENCV_PYTHON3_INSTALL_PATH=$cwd/OpenCV-$cvVersion-py3/lib/python3.5/site-packages \
+            -D ENABLE_PRECOMPILED_HEADERS=OFF \	
+	    -D BUILD_LIBPROTOBUF_FROM_SOURCES=ON \
+	-D WITH_QT=ON \
+        -D WITH_OPENGL=ON \
+        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+        -D BUILD_EXAMPLES=ON ..
+echo "Completed build"
 
-crontab -u pi -l | grep -v '@reboot /home/pi/test2.sh'  | crontab -u pi -
-echo "Removed entry from crontab to start opencv.sh on reboot"
+echo "Staring Make"
+make -j$(nproc) >> ../../$file
+echo "Completed Make"
+echo "Starting OpenCV installation"
+make install >> ../../$file
+echo "Completed OpenCV installation"
 
-sudo reboot
+#For import error on Python2.7 install following , This maybe also required for python 3.X so install.
+sudo apt install python-opencv >> ../../$file
+
+#For import error "ImportError: libQtGui.so.4", solution is at following site
+#https://github.com/pageauc/opencv3-setup/issues/3
+sudo apt install libqtgui4 >> ../../$file
+
+#For import error "ImportError: libQtTest.so.4:", solution is at following site #https://stackoverflow.com/questions/49799798/can-not-import-opencv-in-python3-in-raspberry-pi3
+sudo apt install libqt4-test >> ../../$file
+
+#Optional to run below command.
+#echo "sudo modprobe bcm2835-v4l2" >> ~/.profile
+
+#Below command needs to be run in case crontab is used to autostart this file.
+#crontab -u pi -l | grep -v '@reboot /home/pi/test2.sh'  | crontab -u pi -
+#echo "Removed entry from crontab to start opencv.sh on reboot"
+
+#sudo reboot
