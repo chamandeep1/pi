@@ -21,6 +21,11 @@ echo -e "${colr}Starting system upgrade"
 sudo apt-get upgrade -y >> ../$file
 echo -e "${colr}apt-get Upgrade complete"
 
+#setting up nano to display linenumber
+#https://unix.stackexchange.com/questions/15594/is-there-line-numbering-for-nano
+sudo sed -i "s/^# set linenumbers/set linenumbers/g" /etc/nanorc
+echo "Nano setup to display line number"
+
 #Upgrading pip3
 echo -e "${colr}Starting pip3 upgrade"
 sudo -H pip3 install --upgrade pip >> ../$file
