@@ -89,11 +89,11 @@ echo -e "${colr}Jupyter Extensions installation and enabling user completed, scr
 echo -e "${colr}Starting OpenCV installation"
 sudo pip install --upgrade pip
 sudo pip3 install opencv-python
-sudo apt-get install libatlas-base-dev
-sudo apt-get install libjasper-dev
-sudo apt-get install libqtgui4
-sudo apt install libqt4-test
-sudo apt-get install python3-pyqt5
+sudo apt-get install libatlas-base-dev -y
+sudo apt-get install libjasper-dev -y
+sudo apt-get install libqtgui4 -y
+sudo apt install libqt4-test -y
+sudo apt-get install python3-pyqt5 -y
 echo -e "${colr}Completed OpenCV installation"
 
 #Check if OpenCV contrib is to be installed
