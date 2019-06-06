@@ -83,6 +83,23 @@ jupyter contrib nbextension install --user
 jupyter nbextensions_configurator enable --user
 echo -e "${colr}Jupyter Extensions installation and enabling user completed, script completion will do restart"
 
+#Installing OpenCV, taken from following websites
+#https://github.com/amymcgovern/pyparrot/issues/34
+#https://stackoverflow.com/questions/37495375/python-pip-install-throws-typeerror-unsupported-operand-types-for-retry
+echo -e "${colr}Starting OpenCV installation"
+sudo pip install --upgrade pip
+sudo pip3 install opencv-python
+sudo apt-get install libatlas-base-dev
+sudo apt-get install libjasper-dev
+sudo apt-get install libqtgui4
+sudo apt install libqt4-test
+sudo apt-get install python3-pyqt5
+echo -e "${colr}Completed OpenCV installation"
+
+#Check if OpenCV contrib is to be installed
+#https://stackoverflow.com/questions/47113029/importerror-libsm-so-6-cannot-open-shared-object-file-no-such-file-or-directo
+#sudo python3 -m pip install opencv-contrib-python
+
 #Installing Pandas
 echo -e "${colr}Starting Pandas installation"
 sudo pip3 install pandas >> ../$file
@@ -104,6 +121,13 @@ echo -e "${colr}gparted installation completed"
 #sudo swapon /swapfile
 #sudo sed -i '/^# a/i /swapfile swap swap defaults 0 0' /etc/fstab
 #echo -e "${colr}Swap space of 4GB setup"
+
+#Increasing swap to 1GB
+echo -e "${colr}Increasing swap size to 1GB"
+sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=1024/g' /etc/dphys-swapfile
+sudo /etc/init.d/dphys-swapfile stop
+sudo /etc/init.d/dphys-swapfile start
+echo -e "{colr}Completed swap space increase to 1GB"
 
 #Rebooting the system for matplotlib to take effect
 echo -e "${colr}Please Reboot Environment"
