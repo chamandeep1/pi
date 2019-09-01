@@ -1,0 +1,166 @@
+1566701809010	geckodriver	INFO	geckodriver 0.21.0
+1566701809027	geckodriver	INFO	Listening on 127.0.0.1:35393
+1566701810191	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.cLVLPlYU72PQ"
+Error: no DISPLAY environment variable specified
+1566701850904	geckodriver	INFO	geckodriver 0.21.0
+1566701850920	geckodriver	INFO	Listening on 127.0.0.1:33029
+1566701852092	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.MtJAcC6LmT0E"
+Error: no DISPLAY environment variable specified
+1566702136016	geckodriver	INFO	geckodriver 0.21.0
+1566702136033	geckodriver	INFO	Listening on 127.0.0.1:42355
+1566702137176	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TExOaCiO97sO"
+*** You are running in headless mode.
+1566702142733	Marionette	INFO	Listening on port 41013
+1566702142821	Marionette	WARN	TLS certificate errors will be ignored for this session
+1566702172108	geckodriver	INFO	geckodriver 0.21.0
+1566702172137	geckodriver	INFO	Listening on 127.0.0.1:59077
+1566702173289	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.huWRlzdmhMeP"
+*** You are running in headless mode.
+1566702178636	Marionette	INFO	Listening on port 34331
+1566702178733	Marionette	WARN	TLS certificate errors will be ignored for this session
+1566702498926	geckodriver	INFO	geckodriver 0.21.0
+1566702498942	geckodriver	INFO	Listening on 127.0.0.1:33777
+1566702500105	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.fh7q5Cat6qDS"
+Error: no DISPLAY environment variable specified
+1566702507712	geckodriver	INFO	geckodriver 0.21.0
+1566702507750	geckodriver	INFO	Listening on 127.0.0.1:34543
+1566702508899	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.DWRukOoKyTHD"
+*** You are running in headless mode.
+1566702514734	Marionette	INFO	Listening on port 35341
+1566702514860	Marionette	WARN	TLS certificate errors will be ignored for this session
+Error reading incoming packet: (Error: No packet types for header: GET / HTTP/1.1
+Host: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  127.0.0.1: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header: 35341
+Connection: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  keep-alive
+Upgrade-Insecure-Requests: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  1
+User-Agent: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Raspbian Chromium/74.0.3729.157 Chrome/74.0.3729.157 Safari/537.36
+Accept: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Encoding: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  gzip, deflate, br
+Accept-Language: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header: GET / HTTP/1.1
+Host: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header: GET / HTTP/1.1
+Host: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  127.0.0.1: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header: 35341
+Connection: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  keep-alive
+Upgrade-Insecure-Requests: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  1
+User-Agent: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Raspbian Chromium/74.0.3729.157 Chrome/74.0.3729.157 Safari/537.36
+Accept: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Encoding: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  gzip, deflate, br
+Accept-Language: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header: GET / HTTP/1.1
+Host: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  127.0.0.1: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header: 35341
+Connection: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  keep-alive
+Cache-Control: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  max-age=0
+Upgrade-Insecure-Requests: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  1
+User-Agent: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Raspbian Chromium/74.0.3729.157 Chrome/74.0.3729.157 Safari/537.36
+Accept: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Encoding: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+Error reading incoming packet: (Error: No packet types for header:  gzip, deflate, br
+Accept-Language: - _processIncoming@chrome://marionette/content/transport.js:418:17
+onInputStreamReady@chrome://marionette/content/transport.js:373:14
+)
+1566702636919	geckodriver	INFO	geckodriver 0.21.0
+1566702636936	geckodriver	INFO	Listening on 127.0.0.1:51795
+1566702638092	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zSi02rQ4TwQr"
+Error: no DISPLAY environment variable specified
+1566702813400	geckodriver	INFO	geckodriver 0.21.0
+1566702813416	geckodriver	INFO	Listening on 127.0.0.1:47663
+1566702814504	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--no-remote" "-foreground" "-profile" "/tmp/rust_mozprofile.OWxCVgHl4jl5"
+Error: no DISPLAY environment variable specified
+1566702836345	geckodriver	INFO	geckodriver 0.21.0
+1566702836392	geckodriver	INFO	Listening on 127.0.0.1:44253
+1566702837543	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--new-instance" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.xt7TwYrd4pWV"
+Error: no DISPLAY environment variable specified
+1566703272589	geckodriver	INFO	geckodriver 0.21.0
+1566703272619	geckodriver	INFO	Listening on 127.0.0.1:40129
+1566703273776	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.WM5oVz8H1Ja3"
+*** You are running in headless mode.
+1566703279304	Marionette	INFO	Listening on port 33959
+1566703279416	Marionette	WARN	TLS certificate errors will be ignored for this session
+1566734974919	geckodriver	INFO	geckodriver 0.21.0
+1566734974967	geckodriver	INFO	Listening on 127.0.0.1:37045
+1566734976017	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.lhsjjzNEMQIm"
+*** You are running in headless mode.
+1566734981613	Marionette	INFO	Listening on port 42399
+1566734981734	Marionette	WARN	TLS certificate errors will be ignored for this session
+1566735169630	geckodriver	INFO	geckodriver 0.21.0
+1566735169646	geckodriver	INFO	Listening on 127.0.0.1:39959
+1566735170815	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.R3hVRjPAvjVi"
+1566735176965	Marionette	INFO	Listening on port 41399
+1566735177060	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.log: Accessibility service init or shutdown observer does not exist.
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1566763472381	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.yp2uYR703Ste"
+Error: no DISPLAY environment variable specified
+1566763571167	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.KCCjG0zmDbCc"
+Error: no DISPLAY environment variable specified

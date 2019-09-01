@@ -88,7 +88,12 @@ echo -e "${colr}Jupyter Extensions installation and enabling user completed, scr
 #https://stackoverflow.com/questions/37495375/python-pip-install-throws-typeerror-unsupported-operand-types-for-retry
 echo -e "${colr}Starting OpenCV installation"
 sudo pip install --upgrade pip
-sudo pip3 install opencv-python
+#For Raspberry Pi 4 use following command
+#https://raspberrypi.stackexchange.com/questions/100253/how-can-i-install-opencv-on-raspberry-pi-4-raspbian-buster
+sudo apt install python-opencv
+sudo apt install python3-opencv
+#For Raspberry Pi 3 use folowing command
+#sudo pip3 install opencv-python
 sudo apt-get install libatlas-base-dev -y
 sudo apt-get install libjasper-dev -y
 sudo apt-get install libqtgui4 -y
