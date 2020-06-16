@@ -1,0 +1,67 @@
+Docker Basic Commands:
+#Goto https://www.youtube.com/watch?v=GeqaTjKMWeY&list=PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb&index=2
+
+To install docker on raspberry-Pi Ubuntu server:
+sudo apt install docker.io
+
+Install docker-compose:
+sudo apt install docker-compose
+
+Finding docker version running on ubuntu:
+docker --version
+
+Do following to gibe user permisson to run dockers:
+sudo usermod -a -G docker $USER
+reboot
+
+Download docker image goto https://hub.docker.com/ and search for image then use following command:
+docker pull <ImageName>:VersionNumber
+You can also use following command to download and run the image
+docker run -it -d -p<HostPort>:<ContainerPort> --name <containerName> <ImageName>:VersionNumber   ==> Note -d is used to run it into detached mode , -p is uesd to attached host port to container port number, it is important that you run for the first time with -it otherwise image will not run.
+
+List all the current docker running images:
+docker ps
+
+List all docker containers running or not running:
+docker ps -a
+
+list all docker images:
+docker image list
+
+Start docker image:
+docker start <containerID> or <containerName>
+docker stop <containerID> or <containerName>
+
+View container logs:
+docker logs <imageNAme>
+
+Get into running docker container:
+docker exec -it <containerID> /bin/bash or /bin/sh
+
+Exit running docker container:
+
+
+checking docker network:
+docker network ls
+
+Remove all the stopped docker containers:
+docker system prune
+you can also use --filter command to remove specific containers with specific filters, following command will remove containers created earlier than 12 hrs:
+docker container prune --fdocker ilter "until=12h"
+Another Example of listing containers using filter:
+docker container ls -a --fildoter status=exited --filter status=created
+
+To remove docker image:
+docker image rm <imageID> or <repository>
+
+Execute docker commands one after another:
+docker-compose -f <yamlFileName>.yaml up -d  ==> -d is to run it in detached mode
+
+To create docker image docker file is used:
+Dockerfile
+
+build docker image:
+docker build -t <imageName>:<version> .
+
+
+
