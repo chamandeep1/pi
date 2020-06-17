@@ -30,9 +30,12 @@ sudo apt-get install -y python3 python3-pip -y >> ../$file
 echo "Docker compose proereqisites installed"
 
 #Install docker compose
-sudo pip3 install docker-compose -y >> ../$file
+sudo pip3 install docker-compose >> ../$file
 echo "Docker compose installed"
 
 #Running helloworld on docker
 docker run hello-world >> ../$file
 echo "Docker Hello World run succesfully"
+
+#Running docker compose to compose the file 
+docker-compose up -d
