@@ -38,4 +38,8 @@ docker run hello-world >> ./$file
 echo "Docker Hello World run succesfully"
 
 #Running docker compose to compose the file 
+#Use following command to start portainer only within docker compose file.
+#docker-compose up -d portainer
 docker-compose up -d
+
+
