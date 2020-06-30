@@ -1,0 +1,7 @@
+#refer youtube video https://www.youtube.com/watch?v=RDg6TRwiPtg&list=PLVfSrmy5E30KfslP-1obpwr1b4JeAG8pm&index=6&t=0s
+# goto HOST pi and run the command
+xauth list 
+#above command will list all the axuth keys , copy the on with 1.0
+#copy the 1.0 Unix line from host and add it into the container , below is the example do not include < >
+xauth add <raspberrypi/unix:1  MIT-MAGIC-COOKIE-1  82c8a0e0b2fe763d0bf62b8b01572eeb>
+#before running above command make sure xauth is installed on the container

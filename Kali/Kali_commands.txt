@@ -1,0 +1,14 @@
+#Download the image as container and then run following command
+apt update
+apt upgrade
+
+#Then to search the kali package avaiable use following commands
+apt-cache search kali
+#Or to narrow down search further use
+apt-cache search kali-linux
+
+#Use following command to show the package detsils and size
+apt-cache show <packageName>
+
+# to install top 10 kali packages use
+apt install kali-tools-top10

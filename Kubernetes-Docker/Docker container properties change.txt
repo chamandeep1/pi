@@ -1,0 +1,17 @@
+# to change the docker container properties once container is created
+# you can get the docker installed details from command
+docker info
+
+# you have to stop the docker service with below command, for changing the container config files
+sudo service docker stop
+
+#Gotot the path where docker is installed, on pi it is , Docker Root Dir: /var/lib/docker
+#then change the user to root user
+su root
+
+#then goto the "containers" folder there will be folder with docker container ID for each container in it.
+#got the specific container folder you want to change, then nano the "config.v2.json" file to change the congig variable , i.e. env
+nano config.v2.json
+   
+#save the file and then restart the docker service
+sudo service docker start
