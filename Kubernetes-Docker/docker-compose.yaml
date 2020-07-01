@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   portainer:
     image: portainer/portainer
@@ -10,49 +10,48 @@ services:
   mariadb:
     image: mariadb
     container_name: mariadb
-    restart: always
+    #restart: always
     ports:
       # just if you also want to access it directly from you host
       # node neede for phpmyadmin
-      - "3306:3306" 
+      - "3306:3306"
+   # network_mode: "bridge"
     environment:
       MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: wordpress   
+      MYSQL_DATABASE: wordpress
   phpmyadmin:
     image: jackgruber/phpmyadmin:5.0.2-armhf
     container_name: phpmyadmin
-    restart: always
+    #restart: always
     ports:
       - "9090:80"
     depends_on:
       - mariadb
-    environment: 
-        PMA_HOSTS: mariadb  
-        # PMA_PORT: 3306 
-        #  MYSQL_ROOT_PASSWORD: admin       
+    environment:
+        PMA_HOST: mariadb
+       # PMA_PORT: 3306
+       #  MYSQL_ROOT_PASSWORD: admin
   wordpress:
     image: wordpress
     container_name: wordpress
-    restart: always
+    #restart: always
     ports:
       - "80:80"
-    links:
-      - mariadb
     depends_on:
       - mariadb
-      # network_mode: "bridge"
-      # links:
-      #   - "mariadb"
-    environment: 
-        WORDPRESS_DB_PASSWORD: admin       
-        WORDPRESS_DB_HOST: mariadb
-        WORDPRESS_DB_NAME: wordpress
+   # network_mode: "bridge"
+   # links:
+   #   - "mariadb"
+    environment:
+      WORDPRESS_DB_PASSWORD: admin
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_NAME: wordpress
   ros:
     image: ros
     container_name: ros
-    restart: always
-    #sudo docker run -it --net=host --name=ros -e DISPLAY -v /tmp/.x11-unix ros bash
-    # you have to do "apt=get install xauth" inside the ros container 
+    stdin_open: true
+    tty : true
+    #restart: always
   jupyter:
     image: johntrimble/jupyter-multiarch:lates
     container_name: jupyter
@@ -69,4 +68,26 @@ services:
   kali-linux:
     image: donaldrich/kali-linux
     container_name: kali-linux
+    network_mode: "host"
     working_dir: /root
+    environment:
+      - DISPLAY=:1.0
+    volumes:
+      - type: bind
+        source: /home/pi/.Xauthority
+        target: /root/.Xauthority
+        read_only: true
+  ubuntu:
+    image: ubuntu
+    container_name: ubuntu
+    network_mode: "host"
+    environment:
+      - DISPLAY=:1.0
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: /home/pi/.Xauthority
+        target: /root/.Xauthority
+        read_only: true
+    #command: bash -c "apt update"

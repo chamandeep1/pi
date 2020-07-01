@@ -6,9 +6,17 @@ apt upgrade
 apt-cache search kali
 #Or to narrow down search further use
 apt-cache search kali-linux
+#to display details of the package use following command
+apt-cache show <package-name>
 
 #Use following command to show the package detsils and size
 apt-cache show <packageName>
 
 # to install top 10 kali packages use
 apt install kali-tools-top10
+
+#to find which GUI is installed use the following on commandline
+ls /usr/bin/*session
+
+#To install firefox on kali linux use (note installing firefox on kali is not safe)
+sudo apt-get remove firefox-esr

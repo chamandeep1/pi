@@ -1,0 +1,10 @@
+#Starting container using docker compose, if no docker name specified it will run and create all the docker containers specified in the file 
+docker-compose up <docker-name>
+
+#to run as deamon process use
+docker-compose up -d <docker-name>
+
+#To troubleshoot issues with docker compose use
+docker-compose --verbose up <docker-name>
+or 
+docker-compose logs <docker-name>

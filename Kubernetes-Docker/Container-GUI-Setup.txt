@@ -5,3 +5,6 @@ xauth list
 #copy the 1.0 Unix line from host and add it into the container , below is the example do not include < >
 xauth add <raspberrypi/unix:1  MIT-MAGIC-COOKIE-1  82c8a0e0b2fe763d0bf62b8b01572eeb>
 #before running above command make sure xauth is installed on the container
+
+#to find which GUI is installed on the host use following on commandline
+ls /usr/bin/*session
